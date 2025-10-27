@@ -24,7 +24,7 @@ const deleteProduct = async (req, res) => {
   try {
     const { id } = req.params;
     if (!id) {
-      return res.status(400).json({ message: 'Ingrese Product ID' });
+      return res.status(400).json({ message: 'Ingrese el ID del Producto' });
     }
     await ProductsModel.deleteProduct(id);
     res.status(204).send();
@@ -33,9 +33,24 @@ const deleteProduct = async (req, res) => {
   }
 }
 
+const updateProduct = async(req, res) => {
+  try {
+    const { id } = req.params;
+    const { nombre, precio, detalle, categoria } = req.body;
+
+    if (!id) {
+      return res.status(400).json({ message: 'Ingrese Product ID' });
+    }
+    await ProductsModel.updateProduct(id, nombre, precio, detalle, categoria);
+    res.status(204).send();
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 export const ProductsController = {
   createProduct,
   getAllProducts,
-  deleteProduct
+  deleteProduct,
+  updateProduct
 }
