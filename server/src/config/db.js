@@ -1,11 +1,12 @@
 import dotenv from 'dotenv';
+dotenv.config();
+
 import mysql from 'mysql2';
 
-dotenv.config();
 const credenciales = {
     host: process.env.HOST,
     port: process.env.PORT_DB,
-    user: process.env.USER,
+    user: process.env.USER_DB,
     password:process.env.PASSWORD,
     database: process.env.DATABASE
 };
