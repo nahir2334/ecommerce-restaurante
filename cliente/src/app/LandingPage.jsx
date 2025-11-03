@@ -1,4 +1,3 @@
-import React from "react";
 import Hero from "../components/Hero";
 import MenuPreview from "../components/MenuPreview";
 import ReservasPreview from "../components/ReservasPreview";
